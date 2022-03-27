@@ -2,3 +2,5 @@
 <app-active-users *ngFor="let username of activeUsers" [username]="username"></app-active-users>
 <h1>Inactive Users</h1>
 <app-inactive-users *ngFor="let username of inactiveUsers" [username]='username'></app-inactive-users>
+<p *ngIf="switchToActiveAvg > switchToInactiveAvg">Switch to Active Avg: {{switchToActiveAvg}}</p>
+<p *ngIf="switchToActiveAvg < switchToInactiveAvg">Switch to Inactive Avg: {{switchToInactiveAvg}}</p>

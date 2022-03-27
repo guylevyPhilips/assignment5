@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Counter } from '../counter.service';
 import { UsersService } from '../user.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class InactiveUsersComponent implements OnInit {
 
   @Input() username: string = '';
 
-  constructor(private users: UsersService) { }
+  constructor(private users: UsersService, private counter: Counter) { }
 
   ngOnInit(): void {
 
@@ -18,6 +19,8 @@ export class InactiveUsersComponent implements OnInit {
 
   onSetToActiveClicked(){
     this.users.setUserToActive(this.username);
+    this.counter.switchToActive++;
+    this.counter.calculateAverage();
   }
 
 }
